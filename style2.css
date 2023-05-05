@@ -1,0 +1,13 @@
+.container{
+    background-color: aqua;
+    display: flex;
+
+}
+.row{
+    background-color: red;
+    display: flex;
+    align-items: center;
+}
+form{
+    background-color: blue;
+}

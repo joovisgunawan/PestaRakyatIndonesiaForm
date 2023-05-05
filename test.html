@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project2</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="header">
+            
+        </div>
+        <div class="main">
+            <form action="https://script.google.com/macros/s/AKfycbyFCWo6VHS-AilqCQYUU-TjlEyN69C1mBGTpureVdAVlZssm8p2uOer0Ier3G5dkLMlYw/exec" method="POST" name="uploadForm" id="uploadForm">
+                <input type="hidden" value="" name="fileContent" id="fileContent">
+                <input type="hidden" value="" name="filename" id="filename">
+
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" >
+
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" >
+
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" name="contact" id="contact" >
+
+                <label for="address">skillsets</label>
+                <input type="text" name="skillsets" id="skillsets" >
+
+                <label for="address">linkedin</label>
+                <input type="text" name="linkedinUrl" id="linkedinUrl" >
+            </form>
+            <label for="attach">File</label>
+            <input type="file" name="attach" id="attach" />
+            <input type="button" name="submit" value="Submit" onclick="UploadFile();"/>
+            
+
+        </div>
+        <div class="loader"></div>
+        <div class="footer">
+
+        </div>
+    </body>
+</html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    var form = document.forms['uploadForm'];
+    // var file = document.getElementById('attach');
+    function UploadFile(){
+        var reader = new FileReader();
+        var file = document.getElementById('attach').files[0];
+        reader.onload=function(){
+            document.getElementById('fileContent').value=reader.result;
+            document.getElementById('filename').value=file.name;
+            document.getElementById('uploadForm').submit();
+            swal("Good job!", "You clicked the button!", "success");
+        }
+        reader.readAsDataURL(file);
+
+    }
+    form.reset();
+</script>
+  
